@@ -1,0 +1,127 @@
+{
+    "gmlmc_version": "0.1.0",
+	"stac_version": "1.0.0",
+	"type": "Collection",
+    "id": "template",
+	"title": "",
+	"description": "Test on tree-detection from satellites images",
+	"created": "2020-04-12T23:20:50.52Z",
+	"keywords": [
+		"trees"
+	],
+	"extents": {
+		"$comment": "Usage recommendation, all optional?",
+		"spatial": {
+			"bbox": [[34.18, 0.47 ,34.37, 0.71]]
+		},
+		"temporal": {
+			"interval": [["2018-04-12T00:00:00Z", "2020-03-12T00:00:00Z"]]
+		}
+	},
+	"discouraged_extents": {
+		"$comment": "Usage recommendation, all optional?",
+		"spatial": {
+			"bbox": [[34.18, 0.47 ,34.37, 0.71]]
+		},
+		"temporal": {
+			"interval": [["2018-04-12T00:00:00Z", "2020-03-12T00:00:00Z"]]
+		}
+	},
+	"links": [
+		{
+			"href": "https://api.radiant.earth/mlhub/v1/collections/ref_african_crops_kenya_01_source",
+			"rel": "training-collection",
+			"type": "application/json",
+			"title": "African Crops Kenya Source Imagery"
+		},
+		{
+			"href": "https://opensource.org/licenses/MIT",
+			"rel": "license",
+			"type": "text/html",
+			"title": "MIT license"
+		}
+	],
+	"assets": {
+		"model": {
+			"href": "https://github.com/m-mohr/gmlmc-hackathon-tree-detection/blob/main/epoch_019.ckpt",
+			"type": "application/x.ckpt",
+			"title": "The actual model",
+			"roles": [
+				"model"
+			]
+		}
+	},
+    "model_type": {
+        "learning_approach": "Supervised",
+        "prediction_type": "Object detection",
+        "architecture": "EfficentDet"
+    },
+    "license": "MIT",
+    "providers": [
+        {
+            "name": "Natural Resources Canada (Charles Authier)",
+			"roles": [
+				"creator"
+			],
+            "email": "charles.authier@nrcan-rncan.gc.ca",
+			"url": "https://nrcan-rncan.gc.ca"
+        }
+    ],
+	"sci:doi": "10.1000/xyz123",
+	"sci:citation": "",
+	"sci:publications": [
+		{
+			"doi": "10.1111/xyz123",
+			"citation": "PUBLICATION CITATION HERE"
+		}
+	],
+    "input_types": [
+        {
+            "name": "data_pdf",
+			"type": "application/pdf",
+            "description": "Description of what the inputs should look like"
+        },
+        {
+            "name": "data_img",
+			"type": "image/tif",
+            "sample_type": "float32",
+            "shape": [50, 256, 256],
+            "description": "Description of what the inputs should look like"
+        }
+    ],
+    "output_types": [
+        {
+            "name": "output_var_2",
+			"type": "image/tif",
+            "sample_type": "float32",
+            "shape": [50, 1],
+            "description": "Description of what the outputs of the model are"
+        }
+    ],
+    "runtimes": [
+        {
+			"purpose": "training",
+            "format": "docker",
+			"description": "...",
+            "properties": {
+                "link": "myregistryhost:5000/organization/model_container:1.0.0",
+                "code_examples": [
+                    "https://www.github.com/myorganization/greatexamples"
+                ],
+                "host_requirements": "???"
+            }
+        },
+        {
+			"purpose": "inference",
+            "format": "docker",
+			"description": "...",
+            "properties": {
+                "link": "myregistryhost:5000/organization/model_container:1.0.0",
+                "code_examples": [
+                    "https://www.github.com/myorganization/greatexamples"
+                ],
+                "host_requirements": "???"
+            }
+        }
+    ]
+}
